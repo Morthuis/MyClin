@@ -53,6 +53,8 @@ gem "font-awesome-sass", "~> 6.1"
 
 gem "autoprefixer-rails"
 
+gem "cloudinary"
+
 
 gem "simple_form", github: "heartcombo/simple_form"
 

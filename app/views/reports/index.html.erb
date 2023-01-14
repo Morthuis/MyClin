@@ -1,6 +1,11 @@
+
+    <header>
+      <%= render "shared/navbar" %>
+    </header>
+
 <div class="container">
 <H2>Hi <%=@medico.name%>, In this table you will find a list with all your reports</H2>
-
+<%= link_to "Create new report", new_medico_report_path(current_medico), class:"navbar-btn-yellow br"%>
 <table class="table">
   <thead>
     <tr>

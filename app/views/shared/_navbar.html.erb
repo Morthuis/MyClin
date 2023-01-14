@@ -1,0 +1,42 @@
+<div class="navbar navbar-expand-sm navbar-light">
+  <div class="container-fluid">
+
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://res.cloudinary.com/dtzj3sqwl/image/upload/v1673701308/00236-medical-02_jo6emh.png" %>
+    <% end %>
+
+    <h1>Myclin</h1>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if medico_signed_in? %>
+          <%= link_to root_path do %>
+            <li class="nav-item active">
+              <%= image_tag "https://res.cloudinary.com/dqij49pio/image/upload/v1667688487/Viene%20el%20bus/Home_jum3xt.png", class: "avatar icons-small dropdown-toggle"%>
+            </li>
+          <% end %>
+
+          <li class="nav-item dropdown">
+            <%= image_tag "https://res.cloudinary.com/dqij49pio/image/upload/v1667688487/Viene%20el%20bus/Account_eoaxbm.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%if current_medico.admin == true %>
+                <%= link_to "Admin console", rails_admin_path, class: "dropdown-item" %>
+                <%= link_to "Send reports AdminSalud", rails_admin_path, class: "dropdown-item" %>
+              <%else%>
+                <%= link_to "My reports", medico_reports_path(current_medico), class: "dropdown-item" %>
+              <%end%>
+              <%= link_to "Cerrar sesión", destroy_medico_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+            <%= link_to "Iniciar sesión", new_medico_session_path, class:"navbar-btn-yellow br"%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
