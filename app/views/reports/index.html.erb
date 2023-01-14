@@ -1,0 +1,20 @@
+<div class="container">
+<H2>Hi <%=@medico.name%>, In this table you will find a list with all your reports</H2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Report ID</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |b| %>
+      <tr>
+          <th scope="row"> <%= b.id %> </th>
+          <td> Daily report created on <%= b.fecha %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

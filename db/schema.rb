@@ -37,14 +37,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_152649) do
     t.index ["medico_id"], name: "index_reports_on_medico_id"
   end
 
-  create_table "resumen", force: :cascade do |t|
-    t.text "content"
-    t.bigint "medico_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["medico_id"], name: "index_resumen_on_medico_id"
-  end
-
   add_foreign_key "reports", "medicos"
-  add_foreign_key "resumen", "medicos"
 end

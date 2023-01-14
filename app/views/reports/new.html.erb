@@ -1,0 +1,27 @@
+<h1>Hola hola hola </h1>
+<div class=" container my-2 ">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6">
+      <h1 class="row justify-content-center" >Daily report</h1>
+      <div class="card">
+      <h2 class="card-header"><b><%= @medico.name %></b></h2>
+        <div class="card-body">
+          <h5 class="card-title"><b>Summary</b></h5>
+          <div class="row">
+            <h5><b> Date </b></h5>
+              <%= simple_form_for [@medico, @report] do |f| %>
+                <%= f.input :resumen_del_dia,
+                            as: :text,
+                            input_html: { autocomplete: "Date" }%>
+                <%= f.input :fecha,
+                            as: :date,
+                            input_html: { autocomplete: "Date" }%>
+                <%= link_to "Return game", medico_path(@medico), class:"btn btn-outline-warning"  %>
+                <%= f.submit class:"btn btn-warning" %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
