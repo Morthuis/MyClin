@@ -19,7 +19,7 @@
                 <%= f.input :fecha,
                             as: :date,
                             input_html: { autocomplete: "Date" }%>
-                <%= link_to "Return game", medico_path(@medico), class:"btn btn-outline-warning"  %>
+                <%= link_to "Return to Reports", medico_reports_path(@medico), class:"btn btn-outline-warning"  %>
                 <%= f.submit class:"btn btn-warning" %>
               <% end %>
           </div>

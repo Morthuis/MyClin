@@ -17,7 +17,15 @@
     <% @reports.each do |b| %>
       <tr>
           <th scope="row"> <%= b.id %> </th>
-          <td> Daily report created on <%= b.fecha %> </td>
+          <td>   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#<%=b.id%>" aria-expanded="false" aria-controls="<%=b.id%>">
+    Daily report created on <%= b.fecha %> <%= b.fecha %>
+  </button>
+  <div class="collapse" id="<%=b.id%>">
+  <div class="card card-body">
+    <%=b.resumen_del_dia%>
+  </div>
+</div>
+  </td>
       </tr>
     <% end %>
   </tbody>
