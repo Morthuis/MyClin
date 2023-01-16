@@ -2,6 +2,10 @@
     <header>
       <%= render "shared/navbar" %>
     </header>
+
+<% if medico_signed_in? %>
+  <h2>Hi<strong> <%=current_medico.name%></strong> </h2>
+<%end%>
 <div class="container">
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
           <div class="carousel-indicators">
